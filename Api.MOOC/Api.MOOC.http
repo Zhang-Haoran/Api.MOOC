@@ -29,3 +29,21 @@ Content-Type: application/json
 DELETE {{Api.MOOC_HostAddress}}/api/Category/DeleteCategory?Id=3
 Accept: application/json
 Content-Type: application/json
+
+###
+POST {{Api.MOOC_HostAddress}}/api/User/AddUser
+Accept: application/json
+Content-Type: application/json
+{
+    "userName": "john_doe1",
+    "password": "password123",
+    "email": "john.doe@example.com",
+    "address": "123 Main St",
+    "gender": 1,
+    "access": 1
+}
+
+###
+GET {{Api.MOOC_HostAddress}}/api/User/GetUsers
+Accept: application/json
+Content-Type: application/json

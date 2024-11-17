@@ -13,6 +13,8 @@ namespace Api.MOOC
 
             // Add services to the container.
             builder.Services.AddTransient<ICategoryService, CategoryService>();
+            builder.Services.AddTransient<IUserService, UserService>();
+
             builder.Services.AddControllers();
             builder.Services.AddDbContext<MoocDbContext>(options => 
             options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),new MySqlServerVersion(new Version(8, 0, 33)))

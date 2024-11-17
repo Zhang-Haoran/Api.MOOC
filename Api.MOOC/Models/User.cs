@@ -8,7 +8,7 @@ namespace Api.MOOC.Models
         public int Id { get; set; }
 
         [Required, MaxLength(255)]
-        public string Username { get; set; }
+        public string UserName { get; set; }
 
         [Required, MaxLength(255)]
         public string Password { get; set; }
@@ -29,7 +29,7 @@ namespace Api.MOOC.Models
         public string? Nickname { get; set; }
 
         [Required]
-        public string Access { get;set; }
+        public int Access { get;set; }
 
         public bool Active { get; set; } = true;
     }

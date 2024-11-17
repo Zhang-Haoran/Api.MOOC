@@ -4,13 +4,9 @@ namespace Api.MOOC.IServices
 {
     public interface IUserService
     {
-        bool AddUser(User user);
+        User Add(User user);
         List<User> GetUsers();
-
-        bool UpdateUser(User user);
-
-        bool DeleteUser(int id);
-
-        User GetUserbyUserName(string userName);
+        Task<User> UpdateUsersAsync(User user);
+        Task<bool> DeleteUserAsync(int id);
     }
 }
