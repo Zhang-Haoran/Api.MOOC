@@ -1,4 +1,6 @@
-﻿using Api.MOOC.Models;
+﻿using Api.MOOC.IServices;
+using Api.MOOC.Models;
+using Api.MOOC.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace Api.MOOC
@@ -10,7 +12,7 @@ namespace Api.MOOC
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
+            builder.Services.AddTransient<ICategoryService, CategoryService>();
             builder.Services.AddControllers();
             builder.Services.AddDbContext<MoocDbContext>(options => 
             options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),new MySqlServerVersion(new Version(8, 0, 33)))

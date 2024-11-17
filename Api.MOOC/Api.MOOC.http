@@ -1,6 +1,31 @@
 @Api.MOOC_HostAddress = http://localhost:5245
 
-GET {{Api.MOOC_HostAddress}}/weatherforecast/
+GET {{Api.MOOC_HostAddress}}/api/Category/GetCategory
 Accept: application/json
+Content-Type: application/json
 
 ###
+POST {{Api.MOOC_HostAddress}}/api/Category/AddCategory
+Accept: application/json
+Content-Type: application/json
+{
+    "name": "New Category",
+    "level": 2,
+    "parentId": 1
+}
+
+###
+PUT {{Api.MOOC_HostAddress}}/api/Category/UpdateCategory
+Accept: application/json
+Content-Type: application/json
+{
+    "id": 1,
+    "name": "Updated Category",
+    "level": 2,
+    "parentId": 1
+}
+
+###
+DELETE {{Api.MOOC_HostAddress}}/api/Category/DeleteCategory?Id=3
+Accept: application/json
+Content-Type: application/json
