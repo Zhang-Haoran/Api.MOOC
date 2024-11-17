@@ -20,7 +20,7 @@ namespace Api.MOOC.Models
 
         public int? Age { get; set; }
 
-        public int? Gender { get; set; }
+        public int Gender { get; set; }
 
         public string? Phone { get; set; }
 
@@ -28,7 +28,6 @@ namespace Api.MOOC.Models
 
         public string? Nickname { get; set; }
 
-        [Required]
         public int Access { get;set; }
 
         public bool Active { get; set; } = true;

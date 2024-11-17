@@ -1,7 +1,10 @@
-﻿using Api.MOOC.IServices;
+﻿using Api.MOOC.Config;
+using Api.MOOC.IServices;
 using Api.MOOC.Models;
 using Api.MOOC.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace Api.MOOC
 {
@@ -14,6 +17,7 @@ namespace Api.MOOC
             // Add services to the container.
             builder.Services.AddTransient<ICategoryService, CategoryService>();
             builder.Services.AddTransient<IUserService, UserService>();
+            builder.Services.AddTransient<CreateTokenService>();
 
             builder.Services.AddControllers();
             builder.Services.AddDbContext<MoocDbContext>(options => 
@@ -21,6 +25,9 @@ namespace Api.MOOC
             .LogTo(Console.WriteLine, Microsoft.Extensions.Logging.LogLevel.Information)
             .EnableSensitiveDataLogging()
             .EnableDetailedErrors());
+
+            builder.Services.Configure<JWTConfig>(builder.Configuration.GetSection("JWTConfig"));
+
 
             var app = builder.Build();
 

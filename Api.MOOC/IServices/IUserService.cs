@@ -8,5 +8,6 @@ namespace Api.MOOC.IServices
         List<User> GetUsers();
         Task<User> UpdateUsersAsync(User user);
         Task<bool> DeleteUserAsync(int id);
+        Task<User> GetUserbyUserNameAsync(string userName);
     }
 }

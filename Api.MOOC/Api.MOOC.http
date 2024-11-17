@@ -35,7 +35,7 @@ POST {{Api.MOOC_HostAddress}}/api/User/AddUser
 Accept: application/json
 Content-Type: application/json
 {
-    "userName": "john_doe1",
+    "userName": "john_doe2",
     "password": "password123",
     "email": "john.doe@example.com",
     "address": "123 Main St",
@@ -47,3 +47,13 @@ Content-Type: application/json
 GET {{Api.MOOC_HostAddress}}/api/User/GetUsers
 Accept: application/json
 Content-Type: application/json
+
+###
+POST {{Api.MOOC_HostAddress}}/api/Login/Login
+Content-Type: application/json
+Accept: application/json
+
+{
+    "userName": "john_doe",
+    "password": "password123"
+}

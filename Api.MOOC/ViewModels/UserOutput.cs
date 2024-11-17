@@ -11,6 +11,6 @@ namespace Api.MOOC.ViewModels
 
         public Gender Gender { get; set; }
         public string? Phone { get; set; }
-        public int Access { get; set; }
+        public int Access { get; set; } 
     }
 }

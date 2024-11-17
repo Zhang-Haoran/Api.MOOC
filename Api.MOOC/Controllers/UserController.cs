@@ -53,7 +53,6 @@ namespace Api.MOOC.Controllers
             return Ok(userOutputs);
         }
 
-        // 更新用户信息
         [HttpPut]
         public async Task<ActionResult<UserOutput>> UpdateUserAsync(UpdateUserInput input)
         {

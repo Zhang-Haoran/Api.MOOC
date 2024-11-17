@@ -1,5 +1,6 @@
 ﻿using Api.MOOC.IServices;
 using Api.MOOC.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Api.MOOC.Services
 {
@@ -14,6 +15,10 @@ namespace Api.MOOC.Services
 
         public User Add(User user)
         {
+            if (_dbContext.Users.Any(u => u.UserName == user.UserName))
+            {
+                throw new InvalidOperationException($"Username '{user.UserName}' already exists.");
+            }
             _dbContext.Users.Add(user);
             _dbContext.SaveChanges();
             return user;
@@ -60,6 +65,12 @@ namespace Api.MOOC.Services
             _dbContext.Users.Remove(user);
             await _dbContext.SaveChangesAsync();
             return true;
+        }
+
+        public async Task<User> GetUserbyUserNameAsync(string userName)
+        {
+            var user = await _dbContext.Users.FirstOrDefaultAsync(x => x.UserName == userName);
+            return user;
         }
     }
 }
